@@ -3,449 +3,697 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Services - Électricité Martin | Installation, Rénovation, Dépannage</title>
-    <meta name="description" content="Découvrez tous nos services électriques : installation complète, rénovation, dépannage 24/7, éclairage LED, domotique et électricité tertiaire.">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="pages-styles.css">
+    <meta name="description" content="Services électriques professionnels - Installation, Rénovation, Dépannage 24/7, Domotique, Photovoltaïque, Bornes de recharge. Devis gratuit.">
+    <title>Nos Services | Électricité Martin - Électricien Professionnel</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight: #0A0E27;
+            --electric: #00F0FF;
+            --energy: #FF3D00;
+            --accent: #FFD600;
+            --surface: #F8F9FA;
+            --white: #FFFFFF;
+            --gray-100: #E8EAED;
+            --gray-300: #BDC1C6;
+            --gray-600: #5F6368;
+            --gray-900: #1F2937;
+
+            --font-display: 'Sora', system-ui, sans-serif;
+            --font-body: 'Inter Tight', system-ui, sans-serif;
+
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            --space-4xl: 8rem;
+
+            --glow-electric: 0 0 40px rgba(0, 240, 255, 0.4), 0 0 80px rgba(0, 240, 255, 0.2);
+            --shadow-sm: 0 2px 8px rgba(10, 14, 39, 0.04);
+            --shadow-md: 0 8px 24px rgba(10, 14, 39, 0.08);
+            --shadow-lg: 0 16px 48px rgba(10, 14, 39, 0.12);
+            --shadow-xl: 0 24px 64px rgba(10, 14, 39, 0.16);
+
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--midnight);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(10, 14, 39, 0.08);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--midnight);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 30%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--electric), var(--energy));
+            border-radius: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-lg);
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .nav-links a:hover {
+            color: var(--electric);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--electric), var(--energy));
+            color: var(--white) !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 100px;
+            font-weight: 700;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg), var(--glow-electric);
+        }
+
+        /* Mobile menu */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--midnight);
+            border-radius: 2px;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: calc(80px + var(--space-4xl)) var(--space-lg) var(--space-4xl);
+            background: linear-gradient(180deg, var(--surface) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: var(--space-md);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--electric), var(--energy));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+            max-width: 700px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: var(--space-4xl) var(--space-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .service-detailed {
+            background: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 32px;
+            padding: var(--space-2xl);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-detailed::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--electric), var(--energy));
+            transform: scaleX(0);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-detailed:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-detailed:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--electric);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--electric), var(--energy));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: var(--space-lg);
+            box-shadow: var(--glow-electric);
+        }
+
+        .service-detailed h3 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+            color: var(--midnight);
+        }
+
+        .service-detailed p {
+            color: var(--gray-600);
+            margin-bottom: var(--space-lg);
+            line-height: 1.8;
+            font-size: 1.0625rem;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: var(--space-xl);
+        }
+
+        .service-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            padding: var(--space-sm) 0;
+            color: var(--gray-900);
+        }
+
+        .service-features li::before {
+            content: '⚡';
+            color: var(--electric);
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--midnight);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg), var(--glow-electric);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: transparent;
+            color: var(--midnight);
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--gray-300);
+            transition: var(--transition);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--electric);
+            color: var(--electric);
+            transform: translateY(-4px);
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--midnight) 0%, #1a1f3a 100%);
+            color: var(--white);
+            padding: var(--space-4xl) var(--space-lg);
+            text-align: center;
+            margin: var(--space-4xl) 0;
+        }
+
+        .cta-banner h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-banner p {
+            font-size: 1.25rem;
+            color: var(--gray-300);
+            margin-bottom: var(--space-2xl);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--midnight);
+            color: var(--white);
+            padding: var(--space-3xl) var(--space-lg) var(--space-lg);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .footer-brand h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-brand p {
+            color: var(--gray-300);
+            line-height: 1.7;
+        }
+
+        .footer-section h4 {
+            font-family: var(--font-display);
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-section a {
+            color: var(--gray-300);
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .footer-section a:hover {
+            color: var(--electric);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .footer-bottom p {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: stretch;
+                padding: var(--space-lg);
+                gap: var(--space-sm);
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                pointer-events: none;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                padding: var(--space-sm);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <a href="urgences.html" class="urgence-sticky" aria-label="Urgence 24/7">
-        <span class="urgence-icon">⚡</span>
-        <span class="urgence-text">URGENCE 24/7</span>
-    </a>
-
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">⚡</div>
-                    <div class="logo-text">
-                        <span class="logo-name">Électricité Martin</span>
-                        <span class="logo-tagline">Expertise & Confiance</span>
-                    </div>
-                </a>
-                <button class="mobile-menu-toggle" aria-label="Menu" id="mobileMenuToggle">
-                    <span></span><span></span><span></span>
-                </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="presentation.html">Présentation</a></li>
-                    <li><a href="services.html" class="active">Services</a></li>
-                    <li><a href="urgences.html">Urgences 24/7</a></li>
-                    <li><a href="certifications.html">Certifications</a></li>
-                    <li><a href="devis.html" class="btn-nav">Devis Gratuit</a></li>
-                </ul>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Martin</a>
+            <button class="mobile-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="depannage.html">Dépannage 24/7</a></li>
+                <li><a href="projets.html">Devis Projet</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="tel:0123456789" class="nav-cta">☎ 01 23 45 67 89</a></li>
+            </ul>
         </div>
     </nav>
 
-    <section class="services-hero">
-        <div class="container">
-            <h1 class="page-title">Nos <span class="highlight">Services</span></h1>
-            <p class="page-subtitle">Des solutions électriques complètes pour particuliers et professionnels</p>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Nos <span class="gradient-text">Services</span></h1>
+        <p>De l'installation complète au dépannage d'urgence, nous intervenons pour tous vos besoins électriques avec expertise et réactivité.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="projets.html" class="btn-primary" style="font-size: 1.25rem; padding: 1.25rem 2.5rem;">
+                <span>📋 Devis Gratuit</span>
+            </a>
+            <a href="tel:0123456789" class="btn-secondary" style="font-size: 1.25rem; padding: 1.25rem 2.5rem;">
+                <span>📞 01 23 45 67 89</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="services-grid">
+            <!-- Installation -->
+            <article class="service-detailed">
+                <div class="service-icon">🔌</div>
+                <h3>Installation Électrique</h3>
+                <p>Installation complète de votre réseau électrique aux normes NF C 15-100. Neuf, rénovation, extension.</p>
+                <ul class="service-features">
+                    <li>Tableaux électriques complets</li>
+                    <li>Prises et interrupteurs</li>
+                    <li>Éclairage intérieur & extérieur</li>
+                    <li>Chauffage électrique</li>
+                    <li>Climatisation réversible</li>
+                    <li>Ventilation VMC</li>
+                </ul>
+                <div class="cta-group">
+                    <a href="projets.html" class="btn-primary">Demander un devis</a>
+                    <a href="tel:0123456789" class="btn-secondary">Appeler</a>
+                </div>
+            </article>
+
+            <!-- Rénovation -->
+            <article class="service-detailed">
+                <div class="service-icon">⚡</div>
+                <h3>Rénovation & Mise aux Normes</h3>
+                <p>Mise en conformité de votre installation électrique. Sécurité et performance garanties.</p>
+                <ul class="service-features">
+                    <li>Diagnostic électrique complet</li>
+                    <li>Mise aux normes NF C 15-100</li>
+                    <li>Remplacement tableau électrique</li>
+                    <li>Terre et protection différentielle</li>
+                    <li>Câblage aux normes actuelles</li>
+                    <li>Attestation de conformité Consuel</li>
+                </ul>
+                <div class="cta-group">
+                    <a href="projets.html" class="btn-primary">Devis gratuit</a>
+                    <a href="contact.html" class="btn-secondary">Nous contacter</a>
+                </div>
+            </article>
+
+            <!-- Dépannage -->
+            <article class="service-detailed">
+                <div class="service-icon">🚨</div>
+                <h3>Dépannage Urgence 24/7</h3>
+                <p>Intervention rapide sous 1h, 24h/24 et 7j/7. Électricien disponible jour et nuit pour vos urgences.</p>
+                <ul class="service-features">
+                    <li>Panne de courant totale ou partielle</li>
+                    <li>Court-circuit et disjonction</li>
+                    <li>Recherche de panne électrique</li>
+                    <li>Réparation tableau électrique</li>
+                    <li>Remplacement disjoncteur</li>
+                    <li>Urgence week-end et jours fériés</li>
+                </ul>
+                <div class="cta-group">
+                    <a href="depannage.html" class="btn-primary" style="background: var(--energy);">Urgence maintenant</a>
+                    <a href="tel:0123456789" class="btn-secondary">☎ Appeler 24/7</a>
+                </div>
+            </article>
+
+            <!-- Domotique -->
+            <article class="service-detailed">
+                <div class="service-icon">🏠</div>
+                <h3>Domotique & Maison Connectée</h3>
+                <p>Automatisation et contrôle intelligent de votre installation électrique. Confort et économies d'énergie.</p>
+                <ul class="service-features">
+                    <li>Installation système domotique</li>
+                    <li>Éclairage connecté (Philips Hue, etc.)</li>
+                    <li>Volets roulants motorisés</li>
+                    <li>Thermostat intelligent</li>
+                    <li>Portail et porte de garage connectés</li>
+                    <li>Contrôle vocal (Alexa, Google Home)</li>
+                </ul>
+                <div class="cta-group">
+                    <a href="projets.html" class="btn-primary">Devis personnalisé</a>
+                    <a href="contact.html" class="btn-secondary">En savoir plus</a>
+                </div>
+            </article>
+
+            <!-- Photovoltaïque -->
+            <article class="service-detailed">
+                <div class="service-icon">☀️</div>
+                <h3>Panneaux Solaires & Photovoltaïque</h3>
+                <p>Installation de panneaux solaires photovoltaïques. Produisez votre propre électricité verte.</p>
+                <ul class="service-features">
+                    <li>Étude de faisabilité solaire</li>
+                    <li>Installation panneaux photovoltaïques</li>
+                    <li>Raccordement réseau électrique</li>
+                    <li>Onduleur et optimiseurs</li>
+                    <li>Batterie de stockage (option)</li>
+                    <li>Certifié RGE QualiPV</li>
+                </ul>
+                <div class="cta-group">
+                    <a href="projets.html" class="btn-primary">Étude gratuite</a>
+                    <a href="tel:0123456789" class="btn-secondary">Nous appeler</a>
+                </div>
+            </article>
+
+            <!-- Bornes recharge -->
+            <article class="service-detailed">
+                <div class="service-icon">🔋</div>
+                <h3>Bornes de Recharge Électrique</h3>
+                <p>Installation de bornes de recharge pour véhicules électriques. Solution complète clé en main.</p>
+                <ul class="service-features">
+                    <li>Borne Wallbox 7kW à 22kW</li>
+                    <li>Installation conforme IRVE</li>
+                    <li>Câblage dédié renforcé</li>
+                    <li>Protection différentielle adaptée</li>
+                    <li>Application de contrôle</li>
+                    <li>Électricien certifié IRVE</li>
+                </ul>
+                <div class="cta-group">
+                    <a href="projets.html" class="btn-primary">Devis borne</a>
+                    <a href="contact.html" class="btn-secondary">Voir les modèles</a>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Installation Complète -->
-    <section class="service-detail-section" id="installation">
-        <div class="container">
-            <div class="service-detail">
-                <div class="service-detail-content">
-                    <span class="section-tag">Installation Neuve</span>
-                    <h2>Installation Électrique <span class="highlight">Complète</span></h2>
-                    <p>Que vous construisiez une maison neuve, rénoviez un appartement ou aménag iez des locaux professionnels, nous concevons et installons votre réseau électrique dans les règles de l'art.</p>
-                    <p>Chaque installation est réalisée selon les normes NF C 15-100 en vigueur, garantissant votre sécurité et la conformité de votre installation.</p>
-
-                    <ul class="service-features-list">
-                        <li>Étude et conception du schéma électrique</li>
-                        <li>Installation du tableau électrique et protection différentielle</li>
-                        <li>Pose des câblages, prises et interrupteurs</li>
-                        <li>Mise en place de l'éclairage intérieur et extérieur</li>
-                        <li>Installation chauffage électrique et climatisation</li>
-                        <li>Raccordement VMC et ventilation</li>
-                        <li>Mise aux normes et obtention du Consuel</li>
-                        <li>Garantie décennale sur tous les travaux</li>
-                    </ul>
-
-                    <div class="service-price-box">
-                        <div class="price-label">À partir de</div>
-                        <div class="price-value">2 500 €</div>
-                        <div class="price-note">Selon surface et besoins • Devis gratuit sur mesure</div>
-                    </div>
-                </div>
-                <div class="service-detail-image">
-                    <div class="image-placeholder">
-                        <p>📸 Installation électrique<br>
-                        <small>Suggestion : Photo d'un tableau électrique moderne avec protection différentielle, bien organisé et étiqueté</small></p>
-                    </div>
-                </div>
-            </div>
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <h2>Un projet électrique ?</h2>
+        <p>Obtenez un devis gratuit sous 2h. Notre équipe d'électriciens certifiés vous accompagne de A à Z.</p>
+        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+            <a href="projets.html" class="btn-primary" style="background: var(--white); color: var(--midnight); font-size: 1.25rem; padding: 1.5rem 3rem;">
+                <span>📋 Devis Gratuit</span>
+            </a>
+            <a href="depannage.html" class="btn-secondary" style="border-color: var(--white); color: var(--white); font-size: 1.25rem; padding: 1.5rem 3rem;">
+                <span>🚨 Urgence 24/7</span>
+            </a>
         </div>
     </section>
 
-    <!-- Rénovation -->
-    <section class="service-detail-section" id="renovation">
-        <div class="container">
-            <div class="service-detail">
-                <div class="service-detail-content">
-                    <span class="section-tag">Mise aux Normes</span>
-                    <h2>Rénovation Électrique & <span class="highlight">Mise aux Normes</span></h2>
-                    <p>Votre installation électrique date de plusieurs années ? Il est temps de la mettre aux normes pour garantir votre sécurité et celle de votre famille.</p>
-                    <p>Nous réalisons un diagnostic complet de votre installation existante et vous proposons les solutions adaptées à votre budget.</p>
-
-                    <ul class="service-features-list">
-                        <li>Diagnostic électrique complet et détaillé</li>
-                        <li>Remplacement du tableau électrique vétuste</li>
-                        <li>Installation de prises avec terre</li>
-                        <li>Mise en place de protections différentielles 30mA</li>
-                        <li>Rénovation complète ou partielle du câblage</li>
-                        <li>Ajout de circuits spécialisés (four, lave-linge, etc.)</li>
-                        <li>Mise aux normes pour vente ou location</li>
-                        <li>Attestation de conformité Consuel</li>
-                    </ul>
-
-                    <div class="service-price-box">
-                        <div class="price-label">À partir de</div>
-                        <div class="price-value">1 200 €</div>
-                        <div class="price-note">Pour un appartement 2 pièces • Diagnostic gratuit</div>
-                    </div>
-                </div>
-                <div class="service-detail-image">
-                    <div class="image-placeholder">
-                        <p>📸 Rénovation électrique<br>
-                        <small>Suggestion : Avant/après d'un tableau électrique ancien vs moderne, ou électricien travaillant sur une rénovation</small></p>
-                    </div>
-                </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>Électricité Martin</h3>
+                <p>Expert en installation, rénovation et dépannage électrique. Certifié Qualifelec. Service 24/7 en Île-de-France.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Installation</a></li>
+                    <li><a href="services.html">Rénovation</a></li>
+                    <li><a href="services.html">Dépannage 24/7</a></li>
+                    <li><a href="services.html">Domotique</a></li>
+                    <li><a href="services.html">Photovoltaïque</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="tel:0123456789">01 23 45 67 89</a></li>
+                    <li><a href="mailto:contact@electricite-martin.fr">contact@electricite-martin.fr</a></li>
+                    <li>Paris & Île-de-France</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Légal</h4>
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">CGV</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Dépannage -->
-    <section class="service-detail-section" id="depannage">
-        <div class="container">
-            <div class="service-detail">
-                <div class="service-detail-content">
-                    <span class="section-tag">Intervention Rapide</span>
-                    <h2>Dépannage Électrique <span class="highlight">24/7</span></h2>
-                    <p>Panne de courant, disjoncteur qui saute, court-circuit ? Ne restez pas dans le noir ! Notre équipe intervient en urgence 24h/24, 7j/7, même les week-ends et jours fériés.</p>
-                    <p><strong>Intervention en moins d'1h</strong> dans toute l'Île-de-France pour rétablir votre électricité rapidement et en toute sécurité.</p>
-
-                    <ul class="service-features-list">
-                        <li>Diagnostic et recherche de panne</li>
-                        <li>Réparation de court-circuit</li>
-                        <li>Remplacement disjoncteur ou différentiel</li>
-                        <li>Dépannage prise ou interrupteur défectueux</li>
-                        <li>Réparation câblage endommagé</li>
-                        <li>Problème de surtension ou sous-tension</li>
-                        <li>Remise en service rapide</li>
-                        <li>Disponible 24h/24, 7j/7, jours fériés</li>
-                    </ul>
-
-                    <div class="service-price-box">
-                        <div class="price-label">Tarif intervention urgence</div>
-                        <div class="price-value">90 €</div>
-                        <div class="price-note">Déplacement + diagnostic • Réparation selon devis</div>
-                    </div>
-
-                    <div style="margin-top: 1.5rem;">
-                        <a href="urgences.html" class="btn btn-primary btn-large">
-                            <span>⚡ Appeler en urgence</span>
-                            <span class="btn-arrow">→</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="service-detail-image">
-                    <div class="image-placeholder">
-                        <p>📸 Dépannage électrique<br>
-                        <small>Suggestion : Électricien en action de nuit avec lampe frontale, ou utilisant un testeur sur un tableau</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Éclairage -->
-    <section class="service-detail-section" id="eclairage">
-        <div class="container">
-            <div class="service-detail">
-                <div class="service-detail-content">
-                    <span class="section-tag">Solutions Lumineuses</span>
-                    <h2>Éclairage & <span class="highlight">Design Lumineux</span></h2>
-                    <p>L'éclairage transforme votre intérieur. Nous concevons des ambiances lumineuses adaptées à chaque pièce et installons des solutions LED économiques et durables.</p>
-                    <p>Du simple remplacement d'ampoule à la conception complète d'éclairage architectural, nous créons l'atmosphère dont vous rêvez.</p>
-
-                    <ul class="service-features-list">
-                        <li>Design et conseil en éclairage</li>
-                        <li>Installation spots LED encastrés</li>
-                        <li>Rubans LED et éclairage indirect</li>
-                        <li>Éclairage extérieur et jardin</li>
-                        <li>Variateurs et gradateurs d'intensité</li>
-                        <li>Éclairage connecté et intelligent</li>
-                        <li>Mise en valeur architecturale</li>
-                        <li>Solutions économes en énergie</li>
-                    </ul>
-
-                    <div class="service-price-box">
-                        <div class="price-label">Exemple spot LED encastré</div>
-                        <div class="price-value">45 €</div>
-                        <div class="price-note">Par spot, pose comprise • Dégressif selon quantité</div>
-                    </div>
-                </div>
-                <div class="service-detail-image">
-                    <div class="image-placeholder">
-                        <p>📸 Éclairage LED<br>
-                        <small>Suggestion : Intérieur moderne avec spots LED encastrés au plafond et éclairage indirect, ambiance chaleureuse</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Domotique -->
-    <section class="service-detail-section" id="domotique">
-        <div class="container">
-            <div class="service-detail">
-                <div class="service-detail-content">
-                    <span class="section-tag">Maison Connectée</span>
-                    <h2>Domotique & <span class="highlight">Smart Home</span></h2>
-                    <p>Transformez votre maison en habitat intelligent ! Contrôlez votre éclairage, chauffage, volets et sécurité depuis votre smartphone, où que vous soyez.</p>
-                    <p>Nous installons et configurons des solutions domotiques compatibles avec tous les systèmes (Google Home, Alexa, Apple HomeKit).</p>
-
-                    <ul class="service-features-list">
-                        <li>Éclairage connecté et programmable</li>
-                        <li>Volets roulants automatiques</li>
-                        <li>Thermostats intelligents et radiateurs connectés</li>
-                        <li>Prises connectées et gestion d'énergie</li>
-                        <li>Système d'alarme et caméras connectées</li>
-                        <li>Portier vidéo et contrôle d'accès</li>
-                        <li>Scénarios et automatisations personnalisés</li>
-                        <li>Compatible Google, Alexa, Apple</li>
-                    </ul>
-
-                    <div class="service-price-box">
-                        <div class="price-label">Pack Starter Domotique</div>
-                        <div class="price-value">890 €</div>
-                        <div class="price-note">Hub + 5 modules connectés + installation • Évolutif</div>
-                    </div>
-                </div>
-                <div class="service-detail-image">
-                    <div class="image-placeholder">
-                        <p>📸 Domotique<br>
-                        <small>Suggestion : Smartphone avec application domotique contrôlant éclairage et volets, ou tableau de bord smart home</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tertiaire -->
-    <section class="service-detail-section" id="tertiaire">
-        <div class="container">
-            <div class="service-detail">
-                <div class="service-detail-content">
-                    <span class="section-tag">Professionnels</span>
-                    <h2>Électricité <span class="highlight">Tertiaire</span></h2>
-                    <p>Nous accompagnons les professionnels dans leurs projets électriques : bureaux, commerces, restaurants, locaux industriels. Respect des normes ERP et délais garantis.</p>
-                    <p>Intervention hors horaires d'ouverture possible pour ne pas perturber votre activité.</p>
-
-                    <ul class="service-features-list">
-                        <li>Installation électrique commerces et bureaux</li>
-                        <li>Mise aux normes ERP (Établissements Recevant du Public)</li>
-                        <li>Éclairage professionnel et éclairage de sécurité</li>
-                        <li>Réseau informatique et câblage structuré</li>
-                        <li>Contrôle d'accès et vidéosurveillance</li>
-                        <li>Armoires électriques industrielles</li>
-                        <li>Maintenance préventive et contrats d'entretien</li>
-                        <li>Intervention hors heures d'ouverture</li>
-                    </ul>
-
-                    <div class="service-price-box">
-                        <div class="price-label">Sur devis personnalisé</div>
-                        <div class="price-value">Sur mesure</div>
-                        <div class="price-note">Étude gratuite • Devis détaillé sous 48h</div>
-                    </div>
-                </div>
-                <div class="service-detail-image">
-                    <div class="image-placeholder">
-                        <p>📸 Électricité tertiaire<br>
-                        <small>Suggestion : Bureau moderne avec éclairage professionnel, ou installation électrique dans un commerce</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section style="padding: 6rem 0; background: #F8F9FA;">
-        <div class="container">
-            <div class="section-header centered">
-                <span class="section-tag">Questions Fréquentes</span>
-                <h2 class="section-title">Vous Avez des <span class="highlight">Questions ?</span></h2>
-            </div>
-
-            <div style="max-width: 800px; margin: 0 auto;">
-                <details style="margin-bottom: 1rem; background: white; padding: 1.5rem; border-radius: 0.75rem; cursor: pointer;">
-                    <summary style="font-family: Montserrat; font-weight: 700; color: #0A2463; font-size: 1.125rem;">
-                        Quels sont vos délais d'intervention ?
-                    </summary>
-                    <p style="margin-top: 1rem; color: #6B7280; line-height: 1.7;">
-                        Pour les urgences, nous intervenons en moins d'1h, 24h/24 et 7j/7. Pour les travaux planifiés, nous vous proposons un rendez-vous sous 48h à 72h selon nos disponibilités et vos contraintes.
-                    </p>
-                </details>
-
-                <details style="margin-bottom: 1rem; background: white; padding: 1.5rem; border-radius: 0.75rem; cursor: pointer;">
-                    <summary style="font-family: Montserrat; font-weight: 700; color: #0A2463; font-size: 1.125rem;">
-                        Proposez-vous des facilités de paiement ?
-                    </summary>
-                    <p style="margin-top: 1rem; color: #6B7280; line-height: 1.7;">
-                        Oui, nous acceptons le paiement en plusieurs fois sans frais pour les travaux supérieurs à 1000€. Nous acceptons également les chèques, virements et cartes bancaires.
-                    </p>
-                </details>
-
-                <details style="margin-bottom: 1rem; background: white; padding: 1.5rem; border-radius: 0.75rem; cursor: pointer;">
-                    <summary style="font-family: Montserrat; font-weight: 700; color: #0A2463; font-size: 1.125rem;">
-                        Êtes-vous assurés et certifiés ?
-                    </summary>
-                    <p style="margin-top: 1rem; color: #6B7280; line-height: 1.7;">
-                        Absolument ! Nous sommes certifiés Qualifelec et RGE, et disposons d'une assurance responsabilité civile professionnelle et décennale. Tous nos travaux sont garantis.
-                    </p>
-                </details>
-
-                <details style="margin-bottom: 1rem; background: white; padding: 1.5rem; border-radius: 0.75rem; cursor: pointer;">
-                    <summary style="font-family: Montserrat; font-weight: 700; color: #0A2463; font-size: 1.125rem;">
-                        Le devis est-il vraiment gratuit ?
-                    </summary>
-                    <p style="margin-top: 1rem; color: #6B7280; line-height: 1.7;">
-                        Oui, le devis et le déplacement pour l'établir sont entièrement gratuits et sans engagement. Vous ne payez que si vous décidez de réaliser les travaux.
-                    </p>
-                </details>
-
-                <details style="margin-bottom: 1rem; background: white; padding: 1.5rem; border-radius: 0.75rem; cursor: pointer;">
-                    <summary style="font-family: Montserrat; font-weight: 700; color: #0A2463; font-size: 1.125rem;">
-                        Que se passe-t-il après les travaux ?
-                    </summary>
-                    <p style="margin-top: 1rem; color: #6B7280; line-height: 1.7;">
-                        Nous nettoyons le chantier, vous remettons une facture détaillée et, si nécessaire, les attestations de conformité (Consuel). Nous restons disponibles pour tout SAV.
-                    </p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Besoin d'un Devis Personnalisé ?</h2>
-                <p class="cta-subtitle">Décrivez-nous votre projet et recevez une estimation gratuite sous 2h</p>
-                <div class="cta-buttons">
-                    <a href="devis.html" class="btn btn-primary btn-large">
-                        <span>Obtenir mon devis gratuit</span>
-                        <span class="btn-arrow">→</span>
-                    </a>
-                    <a href="tel:0123456789" class="btn btn-white btn-large">
-                        <span class="phone-icon">📞</span>
-                        <span>01 23 45 67 89</span>
-                    </a>
-                </div>
-                <div class="cta-note">
-                    <span class="check-icon">✓</span>
-                    <span>Réponse sous 2h • Sans engagement • Déplacement gratuit</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <a href="index.html" class="footer-logo">
-                        <div class="logo-icon">⚡</div>
-                        <div class="logo-text">
-                            <span class="logo-name">Électricité Martin</span>
-                            <span class="logo-tagline">Expertise & Confiance depuis 1999</span>
-                        </div>
-                    </a>
-                    <p class="footer-desc">Votre électricien de confiance en Île-de-France. Interventions rapides, travaux de qualité, tarifs transparents.</p>
-                    <div class="footer-certifications">
-                        <span class="cert-badge">Qualifelec</span>
-                        <span class="cert-badge">RGE</span>
-                        <span class="cert-badge">NF</span>
-                    </div>
-                </div>
-
-                <div class="footer-col">
-                    <h4 class="footer-title">Navigation</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="presentation.html">Présentation</a></li>
-                        <li><a href="services.html">Nos Services</a></li>
-                        <li><a href="urgences.html">Urgences 24/7</a></li>
-                        <li><a href="certifications.html">Certifications</a></li>
-                        <li><a href="devis.html">Devis en Ligne</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4 class="footer-title">Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="services.html#installation">Installation</a></li>
-                        <li><a href="services.html#renovation">Rénovation</a></li>
-                        <li><a href="services.html#depannage">Dépannage</a></li>
-                        <li><a href="services.html#eclairage">Éclairage</a></li>
-                        <li><a href="services.html#domotique">Domotique</a></li>
-                        <li><a href="services.html#tertiaire">Tertiaire</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col">
-                    <h4 class="footer-title">Contact</h4>
-                    <ul class="footer-contact">
-                        <li>
-                            <span class="contact-icon">📞</span>
-                            <a href="tel:0123456789">01 23 45 67 89</a>
-                        </li>
-                        <li>
-                            <span class="contact-icon">⚡</span>
-                            <a href="urgences.html" class="urgence-link">Urgence 24/7</a>
-                        </li>
-                        <li>
-                            <span class="contact-icon">✉️</span>
-                            <a href="mailto:contact@electricite-martin.fr">contact@electricite-martin.fr</a>
-                        </li>
-                        <li>
-                            <span class="contact-icon">📍</span>
-                            <span>12 Avenue de la République<br>92100 Boulogne-Billancourt</span>
-                        </li>
-                    </ul>
-                    <div class="footer-hours">
-                        <strong>Horaires bureau :</strong><br>
-                        Lun-Ven : 8h-18h<br>
-                        Sam : 9h-17h<br>
-                        <span class="highlight">Urgences 24/7</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    <p>&copy; 2024 Électricité Martin. Tous droits réservés.</p>
-                    <ul class="legal-links">
-                        <li><a href="#mentions">Mentions légales</a></li>
-                        <li><a href="#cgv">CGV</a></li>
-                        <li><a href="#confidentialite">Confidentialité</a></li>
-                    </ul>
-                </div>
-                <div class="footer-info">
-                    <p>SIRET : 123 456 789 00012 • RCS Nanterre • Assurance RC Pro et Décennale</p>
-                </div>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Électricité Martin. Tous droits réservés.</p>
+            <p>SIRET: 123 456 789 00012 • RCS Paris</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
