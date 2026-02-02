@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis Gratuit - Électricité Martin | Demande de Devis en Ligne</title>
+    <meta name="description" content="Demandez votre devis électricité gratuit et sans engagement. Réponse sous 2h. Installation, rénovation, dépannage.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pages-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="urgences.html" class="urgence-sticky" aria-label="Urgence 24/7">
+        <span class="urgence-icon">⚡</span>
+        <span class="urgence-text">URGENCE 24/7</span>
+    </a>
+
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">⚡</div>
+                    <div class="logo-text">
+                        <span class="logo-name">Électricité Martin</span>
+                        <span class="logo-tagline">Expertise & Confiance</span>
+                    </div>
+                </a>
+                <button class="mobile-menu-toggle" aria-label="Menu" id="mobileMenuToggle">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="presentation.html">Présentation</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="urgences.html">Urgences 24/7</a></li>
+                    <li><a href="certifications.html">Certifications</a></li>
+                    <li><a href="devis.html" class="active btn-nav">Devis Gratuit</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Accueil</a>
+                <span class="separator">›</span>
+                <span>Devis en Ligne</span>
+            </div>
+            <h1 class="page-title">Demandez Votre <span class="highlight">Devis Gratuit</span></h1>
+            <p class="page-subtitle">Réponse personnalisée sous 2h • Sans engagement • Déplacement gratuit</p>
+        </div>
+    </section>
+
+    <section class="devis-section">
+        <div class="devis-container">
+            <div class="devis-intro">
+                <p style="font-size: 1.125rem; color: #6B7280; line-height: 1.8; max-width: 700px; margin: 0 auto;">
+                    Décrivez-nous votre projet en quelques minutes. Nous vous répondrons rapidement avec une estimation précise et détaillée. <strong>100% gratuit et sans engagement.</strong>
+                </p>
+            </div>
+
+            <form class="devis-form" id="devisForm">
+                <!-- Informations personnelles -->
+                <div class="form-section">
+                    <h3 class="form-section-title">1. Vos Coordonnées</h3>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required" for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" class="form-input" required placeholder="Votre nom">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" class="form-input" required placeholder="Votre prénom">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required placeholder="votre@email.fr">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="telephone">Téléphone</label>
+                            <input type="tel" id="telephone" name="telephone" class="form-input" required placeholder="06 12 34 56 78">
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label required" for="adresse">Adresse du projet</label>
+                        <input type="text" id="adresse" name="adresse" class="form-input" required placeholder="Adresse complète">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label required" for="ville">Ville</label>
+                            <input type="text" id="ville" name="ville" class="form-input" required placeholder="Paris, Versailles...">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="codepostal">Code Postal</label>
+                            <input type="text" id="codepostal" name="codepostal" class="form-input" required placeholder="75001" pattern="[0-9]{5}">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Type de projet -->
+                <div class="form-section">
+                    <h3 class="form-section-title">2. Votre Projet</h3>
+
+                    <div class="form-group">
+                        <label class="form-label required">Type de service</label>
+                        <div class="form-radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="service-installation" name="service" value="installation" required>
+                                <label for="service-installation">Installation Électrique Complète</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="service-renovation" name="service" value="renovation">
+                                <label for="service-renovation">Rénovation & Mise aux Normes</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="service-depannage" name="service" value="depannage">
+                                <label for="service-depannage">Dépannage / Réparation</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="service-eclairage" name="service" value="eclairage">
+                                <label for="service-eclairage">Éclairage & LED</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="service-domotique" name="service" value="domotique">
+                                <label for="service-domotique">Domotique & Maison Connectée</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="service-tertiaire" name="service" value="tertiaire">
+                                <label for="service-tertiaire">Électricité Tertiaire / Pro</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="service-autre" name="service" value="autre">
+                                <label for="service-autre">Autre (à préciser)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label required">Type de bien</label>
+                        <select id="typebien" name="typebien" class="form-select" required>
+                            <option value="">Sélectionnez...</option>
+                            <option value="appartement">Appartement</option>
+                            <option value="maison">Maison</option>
+                            <option value="commerce">Commerce / Bureau</option>
+                            <option value="industriel">Local Industriel</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="surface">Surface (m²)</label>
+                            <input type="number" id="surface" name="surface" class="form-input" placeholder="Ex: 75">
+                            <div class="form-note">Optionnel - aide à l'estimation</div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label required" for="urgence">Urgence</label>
+                            <select id="urgence" name="urgence" class="form-select" required>
+                                <option value="">Sélectionnez...</option>
+                                <option value="immediat">Immédiat (< 24h)</option>
+                                <option value="rapide">Rapide (< 1 semaine)</option>
+                                <option value="normal">Normal (< 1 mois)</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Détails du projet -->
+                <div class="form-section">
+                    <h3 class="form-section-title">3. Détails du Projet</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Prestations souhaitées (plusieurs choix possibles)</label>
+                        <div class="form-checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="presta-tableau" name="prestations[]" value="tableau">
+                                <label for="presta-tableau">Tableau électrique</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="presta-prises" name="prestations[]" value="prises">
+                                <label for="presta-prises">Prises & Interrupteurs</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="presta-eclairage" name="prestations[]" value="eclairage">
+                                <label for="presta-eclairage">Éclairage</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="presta-chauffage" name="prestations[]" value="chauffage">
+                                <label for="presta-chauffage">Chauffage électrique</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="presta-domotique" name="prestations[]" value="domotique">
+                                <label for="presta-domotique">Domotique / Connecté</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="presta-diagnostic" name="prestations[]" value="diagnostic">
+                                <label for="presta-diagnostic">Diagnostic / Mise aux normes</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="presta-autre" name="prestations[]" value="autre">
+                                <label for="presta-autre">Autre</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label required" for="description">Description de votre projet</label>
+                        <textarea id="description" name="description" class="form-textarea" required placeholder="Décrivez-nous votre projet en détail : pièces concernées, travaux souhaités, contraintes particulières, etc."></textarea>
+                        <div class="form-note">Plus vous êtes précis, plus notre devis sera exact</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="budget">Budget estimé</label>
+                        <select id="budget" name="budget" class="form-select">
+                            <option value="">Optionnel</option>
+                            <option value="moins-500">Moins de 500€</option>
+                            <option value="500-1000">500€ - 1 000€</option>
+                            <option value="1000-2500">1 000€ - 2 500€</option>
+                            <option value="2500-5000">2 500€ - 5 000€</option>
+                            <option value="5000-10000">5 000€ - 10 000€</option>
+                            <option value="plus-10000">Plus de 10 000€</option>
+                        </select>
+                        <div class="form-note">Aide à nous orienter, ne vous engage à rien</div>
+                    </div>
+                </div>
+
+                <!-- Disponibilités -->
+                <div class="form-section">
+                    <h3 class="form-section-title">4. Vos Disponibilités</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Quand souhaitez-vous être contacté ?</label>
+                        <div class="form-checkbox-group">
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="dispo-matin" name="disponibilites[]" value="matin">
+                                <label for="dispo-matin">Matin (8h-12h)</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="dispo-midi" name="disponibilites[]" value="midi">
+                                <label for="dispo-midi">Midi (12h-14h)</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="dispo-apresmidi" name="disponibilites[]" value="apresmidi">
+                                <label for="dispo-apresmidi">Après-midi (14h-18h)</label>
+                            </div>
+                            <div class="checkbox-option">
+                                <input type="checkbox" id="dispo-soir" name="disponibilites[]" value="soir">
+                                <label for="dispo-soir">Soir (18h-20h)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Mode de contact préféré</label>
+                        <div class="form-radio-group">
+                            <div class="radio-option">
+                                <input type="radio" id="contact-tel" name="contact_pref" value="telephone" checked>
+                                <label for="contact-tel">Téléphone</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="contact-email" name="contact_pref" value="email">
+                                <label for="contact-email">Email</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="contact-sms" name="contact_pref" value="sms">
+                                <label for="contact-sms">SMS</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="form-label" for="commentaires">Informations complémentaires</label>
+                        <textarea id="commentaires" name="commentaires" class="form-textarea" style="min-height: 80px;" placeholder="Ajouter des informations complémentaires (optionnel)"></textarea>
+                    </div>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <span>Envoyer ma demande de devis</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <p class="form-legal">
+                        En soumettant ce formulaire, vous acceptez d'être contacté par Électricité Martin concernant votre demande. Vos données sont protégées et ne seront jamais partagées.
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 0; background: #F0F4FF;">
+        <div class="container">
+            <div class="section-header centered">
+                <h2 class="section-title">Pourquoi Demander un <span class="highlight">Devis ?</span></h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+                <div style="text-align: center;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1E88E5, #1976D2); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; border-radius: 1rem; margin: 0 auto 1rem;"> 💯</div>
+                    <h3 style="color: #0A2463; margin-bottom: 0.5rem;">100% Gratuit</h3>
+                    <p style="color: #6B7280;">Sans engagement, sans frais cachés</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1E88E5, #1976D2); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; border-radius: 1rem; margin: 0 auto 1rem;">⚡</div>
+                    <h3 style="color: #0A2463; margin-bottom: 0.5rem;">Réponse Rapide</h3>
+                    <p style="color: #6B7280;">Réponse personnalisée sous 2h</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1E88E5, #1976D2); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; border-radius: 1rem; margin: 0 auto 1rem;">📋</div>
+                    <h3 style="color: #0A2463; margin-bottom: 0.5rem;">Devis Détaillé</h3>
+                    <p style="color: #6B7280;">Prix transparent, tout compris</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, #1E88E5, #1976D2); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; border-radius: 1rem; margin: 0 auto 1rem;">🤝</div>
+                    <h3 style="color: #0A2463; margin-bottom: 0.5rem;">Conseils Experts</h3>
+                    <p style="color: #6B7280;">Accompagnement personnalisé</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="index.html" class="footer-logo">
+                        <div class="logo-icon">⚡</div>
+                        <div class="logo-text">
+                            <span class="logo-name">Électricité Martin</span>
+                            <span class="logo-tagline">Expertise & Confiance depuis 1999</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">Votre électricien de confiance en Île-de-France. Interventions rapides, travaux de qualité, tarifs transparents.</p>
+                    <div class="footer-certifications">
+                        <span class="cert-badge">Qualifelec</span>
+                        <span class="cert-badge">RGE</span>
+                        <span class="cert-badge">NF</span>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="presentation.html">Présentation</a></li>
+                        <li><a href="services.html">Nos Services</a></li>
+                        <li><a href="urgences.html">Urgences 24/7</a></li>
+                        <li><a href="certifications.html">Certifications</a></li>
+                        <li><a href="devis.html">Devis en Ligne</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#installation">Installation</a></li>
+                        <li><a href="services.html#renovation">Rénovation</a></li>
+                        <li><a href="services.html#depannage">Dépannage</a></li>
+                        <li><a href="services.html#eclairage">Éclairage</a></li>
+                        <li><a href="services.html#domotique">Domotique</a></li>
+                        <li><a href="services.html#tertiaire">Tertiaire</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-contact">
+                        <li><span class="contact-icon">📞</span><a href="tel:0123456789">01 23 45 67 89</a></li>
+                        <li><span class="contact-icon">⚡</span><a href="urgences.html" class="urgence-link">Urgence 24/7</a></li>
+                        <li><span class="contact-icon">✉️</span><a href="mailto:contact@electricite-martin.fr">contact@electricite-martin.fr</a></li>
+                        <li><span class="contact-icon">📍</span><span>12 Avenue de la République<br>92100 Boulogne-Billancourt</span></li>
+                    </ul>
+                    <div class="footer-hours">
+                        <strong>Horaires bureau :</strong><br>Lun-Ven : 8h-18h<br>Sam : 9h-17h<br><span class="highlight">Urgences 24/7</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <p>&copy; 2024 Électricité Martin. Tous droits réservés.</p>
+                    <ul class="legal-links">
+                        <li><a href="#mentions">Mentions légales</a></li>
+                        <li><a href="#cgv">CGV</a></li>
+                        <li><a href="#confidentialite">Confidentialité</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <p>SIRET : 123 456 789 00012 • RCS Nanterre • Assurance RC Pro et Décennale</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

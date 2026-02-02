@@ -1,0 +1,29 @@
+# Images (à ajouter plus tard avec vos vraies photos)
+images/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Fichiers temporaires
+*.tmp
+*.temp
+
+# Node modules (si vous ajoutez Node.js plus tard)
+node_modules/
+package-lock.json
+
+# Fichiers de build (si vous ajoutez un build process)
+dist/
+build/
